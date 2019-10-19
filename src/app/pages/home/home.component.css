@@ -1,0 +1,126 @@
+header {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background-color: var(--black);
+  color: var(--white);
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header img {
+  height: auto;
+  width: 40%;
+}
+
+main {
+  position: absolute;
+  min-height: calc(100vh - 2.95rem);
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+  background-color: var(--black);
+  top: calc(100vh + 2.93rem);
+}
+
+app-nav-bar {
+  z-index: 4;
+  position: absolute;
+  top: 100vh;
+  width: 100%;
+}
+
+.sticky {
+  position: fixed !important;
+}
+
+app-nav-bar.sticky {
+  top: 0vh !important;
+}
+
+.content {
+  height: auto;
+  padding: 15px;
+}
+
+.content-white {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.content-dark {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.content h1 {
+  position: relative;
+  align-self: center;
+  text-align: center;
+  font-size: 4rem;
+  margin: 0 8rem;
+}
+
+.zeltlager {
+  height: 70vh;
+  text-align: center;
+  padding: 0;
+}
+
+.zeltlager h1 {
+  top: -40vh;
+  color: white;
+}
+
+.zeltlagerimg {
+  height: 100%;
+  width: 100%;
+  background-image: url("../../../pictures/Bild1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(0.8);
+}
+
+.colorpicker {
+  height: 70vh;
+  text-align: center;
+  padding: 0;
+  background: linear-gradient(
+    to right,
+    var(--violett),
+    var(--blue),
+    var(--green),
+    var(--yellow),
+    var(--orange),
+    var(--red)
+  );
+}
+
+.colorpicker h1 {
+  top: 30vh;
+  color: white;
+}
+
+footer {
+  position: relative;
+  top: calc(100vh + 2 * 70vh + 2.95rem);
+  width: 100%;
+  text-align: center;
+  color: var(--white);
+  border-top: 1px solid #070707;
+  background-color: var(--black);
+}
+
+@media screen and (max-width: 700px) {
+  .content h1 {
+    font-size: 3rem;
+    margin: 0 1rem;
+  }
+
+  header img {
+    width: 95%;
+  }
+}

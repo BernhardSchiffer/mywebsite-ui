@@ -1,0 +1,175 @@
+nav
+{
+   z-index: 4;
+   position: absolute;
+   overflow: hidden;
+   background-color: var(--green);
+   width: 100%;
+   display: grid;
+   grid-template-columns: auto 1fr auto;
+   grid-template-areas: 
+      "home inhalt user";
+   box-sizing: border-box;
+   padding: 0 5vw;
+}
+
+nav .right
+{
+   grid-area: user;
+}
+
+nav .left
+{
+   grid-area: inhalt;
+}
+
+nav a
+{
+   float: left;
+   display: block;
+   color: var(--white);
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   font-size: 1rem;
+}
+
+nav a:hover
+{
+   background-color: var(--white);
+   color: var(--black);
+}
+
+nav .left a
+{
+   float: left;
+}
+
+nav .right a
+{
+   float: right;
+}
+
+nav .home
+{
+   grid-area: home;
+}
+
+nav .icon
+{
+   grid-area: nav-icon;
+   height: 35px;
+   width: 35px;
+   padding: 6px;
+   cursor: pointer;
+   display: none;
+}
+
+.bar1, .bar2, .bar3
+{
+   height: 3px;
+   width: 35px;
+   background-color: var(--white);
+   margin: 6.66px 0px;
+   transition: transform 0.4s, opacity 0.2s;
+}
+
+.navopen .bar1
+{
+   transform: translate(0px, 9.66px) rotate(135deg);
+}
+
+.navopen .bar2
+{
+   opacity: 0;
+}
+
+.navopen .bar3
+{
+   transform: translate(0px, -9.66px) rotate(-135deg);
+}
+
+nav .title
+{
+   grid-area: title;
+   color: var(--white);
+   display: none;
+   margin: auto;
+}
+
+#user
+{
+   text-align: center;
+   width: 15rem;
+}
+
+@media screen and (max-width: 800px)
+{  
+   app-user-dropdown
+   {
+      display: none;
+   }
+   
+   nav .left, nav .right
+   {
+      background-color: var(--darkgray);
+      display: none;
+   }
+   
+   nav .left a, nav .right a
+   {
+      float: left;
+   }
+
+   nav .left a:hover, nav .right a:hover
+   {
+      background-color: var(--lightgray);
+      color: var(--white);
+   }
+
+   nav
+   {
+      padding: 0;
+      grid-template-columns: 5rem 1fr 5rem;
+      grid-template-rows: auto;
+      grid-template-areas:
+         "home title nav-icon "
+         "inhalt inhalt inhalt"
+         "user user user";
+   }
+   
+   nav .icon
+   {
+      display: block;
+      margin: auto;
+      margin-left: 1.6rem;
+   }
+
+   nav .home
+   {
+      display: block;
+   }
+
+   nav .title
+   {
+      display: block;
+   }
+
+   nav.navopen .left, nav.navopen .right
+   {
+      width: 100%;
+      display: block;
+   }
+   
+   nav.navopen .left a, nav.navopen .right a
+   {
+      width: 100%;
+      text-align: start;
+   }
+
+   #user
+   {
+      width: 100%;
+      text-align: start;
+   }
+}

@@ -1,0 +1,14 @@
+<div id="userdropdown" class="hide">
+   <form *ngIf="!user" id="login" (submit)="loginUser($event)" autocomplete="on">
+      <label>e-M@il</label>
+      <input id="email" name="email" type="email" placeholder="e-M@il" required>
+      <label>Passwort</label>
+      <input id="password" name="password" type="password" placeholder="Passwort" required>
+      <button class="submit" type="submit">Anmelden</button>
+   </form>
+   <div *ngIf="user" class="user">
+      <label>{{user.name}}</label>
+      <label>{{user.email}}</label>
+      <button id="deletebutton" (click)="logoutUser()" class="delete" type="button">Abmelden</button>
+   </div>
+</div>

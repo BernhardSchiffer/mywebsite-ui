@@ -1,0 +1,37 @@
+<nav id="navbar" [ngClass]="isOpen ? 'navopen' : ''">
+  <a href="/" class="home">Home</a>
+  <span class="title">{{ navTitle }}</span>
+  <div class="icon" (click)="openNav()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  <div class="left">
+    <a href="/zeltlager">Zeltlager</a>
+    <a href="/colorpicker">Colorpicker</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </div>
+  <div class="right">
+    <a
+      *ngIf="user"
+      id="user"
+      (mouseenter)="showLogin()"
+      (mouseleave)="hideLogin()"
+      href="/dashboard"
+      >{{ user.name }}</a
+    >
+    <a
+      *ngIf="!user"
+      id="login"
+      (mouseenter)="showLogin()"
+      (mouseleave)="hideLogin()"
+      href="/login"
+      >Login</a
+    >
+    <a *ngIf="!user" href="/registration">Registrierung</a>
+  </div>
+</nav>
+<app-user-dropdown
+  (mouseenter)="showLogin()"
+  (mouseleave)="hideLogin()"
+></app-user-dropdown>

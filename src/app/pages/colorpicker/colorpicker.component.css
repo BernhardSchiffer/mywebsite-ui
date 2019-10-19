@@ -1,0 +1,39 @@
+:host
+{
+   --bgcolor: #4CAF50;
+}
+
+#colorpicker
+{
+   background-color: var(--bgcolor);
+   height: 100vh;
+   margin: 0;
+   padding: 0;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.center
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container
+{
+   border-radius: 10px;
+   width: 300px;
+   background: white;
+   border: 1px solid lightgray;
+   padding: 20px;
+}
+
+input[type=text]
+{
+   padding: 12px 20px;
+   margin: 8px 10px;
+   display: inline-block;
+   border: 1px solid lightgray;
+   border-radius: 5px;
+   box-sizing: border-box;
+}

@@ -1,0 +1,28 @@
+#userdropdown {
+  z-index: 5;
+  display: grid;
+  background-color: var(--darkgray);
+  padding: 1rem;
+  position: relative;
+  top: 3rem;
+  left: calc(95% - 17rem - 1px);
+  width: 15rem;
+  border-radius: 0 0 7px 7px;
+  color: var(--white);
+}
+
+.user {
+  line-height: 200%;
+}
+
+.user label {
+  display: block;
+}
+
+#userdropdown button {
+  width: 100%;
+}
+
+.hide {
+  display: none !important;
+}
