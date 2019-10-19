@@ -1,27 +1,24 @@
 # MywebsiteUi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
+This repository is for the frontend of `https://bernhardschiffer.dev`. It can be deployed as an docker container.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Docker
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `docker-compose up` to build and run the docker image.
+The frontend is available over `http://localhost:80`
 
-## Running end-to-end tests
+## What have I learned?
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- dockerize an angular application
+- write a Dockerfile with a multistage build
+- configure nginx to host an angular application
+- setup docker on a server
+- deploy the docker container on a server
