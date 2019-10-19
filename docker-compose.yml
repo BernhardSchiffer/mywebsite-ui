@@ -1,0 +1,9 @@
+version: "2.3"
+
+services:
+  mywebsite-ui:
+    hostname: localhost
+    container_name: mywebsite-ui
+    build: .
+    ports:
+      - 80:80
