@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Login } from "../../models/Login";
 import { User } from "../../models/User";
 import { UserService } from "../../services/user-service/user.service";
 import { TokenService } from "../../services/token-service/token.service";
+import { AuthService } from "src/app/services/auth-service/auth.service";
 
 @Component({
   selector: "app-user-dropdown",
@@ -11,10 +11,13 @@ import { TokenService } from "../../services/token-service/token.service";
 })
 export class UserDropdownComponent implements OnInit {
   user: User = null;
+  email: string = "";
+  password: string = "";
 
   constructor(
     private userService: UserService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -24,27 +27,10 @@ export class UserDropdownComponent implements OnInit {
   async loginUser(event) {
     event.preventDefault();
     let myForm = document.forms["login"];
-    let formData = new FormData(myForm);
-    let login = new Login(formData);
 
-    let res = await fetch("/api/auth", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(login)
-    });
-    let body = await res.json();
-    if (body) {
-      console.log(body);
-      let user: User = body;
-      this.userService.saveUser(user);
-    }
-    if (res.headers.get("x-auth-token")) {
-      this.tokenService.saveToken("jwt", res.headers.get("x-auth-token"));
-      window.location.href = "/";
-      myForm.reset();
-    }
+    this.user = await this.authService.login(this.email, this.password);
+
+    myForm.reset();
     return false;
   }
 
@@ -52,6 +38,5 @@ export class UserDropdownComponent implements OnInit {
     this.userService.deleteUser();
     this.tokenService.deleteToken("jwt");
     this.user = null;
-    window.location.href = "/";
   }
 }

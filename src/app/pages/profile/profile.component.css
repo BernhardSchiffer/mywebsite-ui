@@ -1,0 +1,20 @@
+main {
+  position: absolute;
+  background-color: var(--white);
+  min-height: calc(100vh - 2.95rem);
+  top: 2.95rem;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.center-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  padding: 0 2rem;
+  width: 30vw;
+}

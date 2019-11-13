@@ -14,10 +14,17 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.navbar = document.getElementById("navbar");
     this.navbarLocation = this.navbar.offsetTop;
-
-    const banner = document.getElementById("banner") as HTMLImageElement;
-    banner.src =
-      "../../assets/funztcoolbanner" + Math.floor(Math.random() * 6) + ".png";
+    /*
+    const banner: HTMLPictureElement = document.getElementById("banner");
+    const pics: HTMLCollectionOf<Elem> = document.getElementsByClassName("bannerpic");
+    let pic: HTMLSourceElement = pics.;
+    for (let x = 0; x <= pics.length; x++) {
+      let pic: HTMLSourceElement = pics.item(x) as HTMLSourceElement;
+      pic.srcset =
+        "../../assets/funztcoolbanner" +
+        Math.floor(Math.random() * 6) +
+        ".webp";
+    }*/
   }
 
   @HostListener("window:scroll", [])

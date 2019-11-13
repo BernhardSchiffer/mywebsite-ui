@@ -1,0 +1,11 @@
+:host
+{
+   background-color: var(--green);
+   color: var(--black);
+}
+
+app-nav-bar
+{
+   top: 0;
+}
+

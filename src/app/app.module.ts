@@ -9,6 +9,11 @@ import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
 import { UserDropdownComponent } from "./components/user-dropdown/user-dropdown.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { ColorpickerComponent } from "./pages/colorpicker/colorpicker.component";
+import { NormalLayoutComponent } from "./pages/normal-layout/normal-layout.component";
+import { RegistrationComponent } from "./pages/registration/registration.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { DatenschutzComponent } from "./pages/datenschutz/datenschutz.component";
+import { ProfileComponent } from "./pages/profile/profile.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +21,12 @@ import { ColorpickerComponent } from "./pages/colorpicker/colorpicker.component"
     HomeComponent,
     ColorpickerComponent,
     NavBarComponent,
-    UserDropdownComponent
+    UserDropdownComponent,
+    NormalLayoutComponent,
+    RegistrationComponent,
+    LoginComponent,
+    DatenschutzComponent,
+    ProfileComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

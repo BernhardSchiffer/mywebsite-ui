@@ -1,5 +1,9 @@
 <header>
-  <img id="banner" src="assets/funztcool0.png" alt="" />
+  <picture>
+    <source type="image/webp" srcset="../../assets/funztcoolbanner4.webp" />
+    <source type="image/png" srcset="../../assets/funztcoolbanner4.png" />
+    <img src="assets/funztcoolbanner4.png" alt="" />
+  </picture>
 </header>
 <app-nav-bar id="navbar" navTitle="bernhardschiffer.dev"></app-nav-bar>
 <main>
@@ -20,9 +24,10 @@
     <h1>colorpicker</h1>
   </section>
 </main>
-
-<footer>
-  <p>@Börnie</p>
-</footer>
+<!--
+  <footer>
+    <p>@Börnie</p>
+  </footer>
+-->
 
 <router-outlet></router-outlet>

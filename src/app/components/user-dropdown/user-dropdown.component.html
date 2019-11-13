@@ -1,9 +1,9 @@
 <div id="userdropdown" class="hide">
    <form *ngIf="!user" id="login" (submit)="loginUser($event)" autocomplete="on">
       <label>e-M@il</label>
-      <input id="email" name="email" type="email" placeholder="e-M@il" required>
+      <input id="email" name="email" type="email" placeholder="e-M@il" required [(ngModel)]="email">
       <label>Passwort</label>
-      <input id="password" name="password" type="password" placeholder="Passwort" required>
+      <input id="password" name="password" type="password" placeholder="Passwort" required [(ngModel)]="password">
       <button class="submit" type="submit">Anmelden</button>
    </form>
    <div *ngIf="user" class="user">

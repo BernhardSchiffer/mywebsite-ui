@@ -1,5 +1,5 @@
 #userdropdown {
-  z-index: 5;
+  z-index: 1;
   display: grid;
   background-color: var(--darkgray);
   padding: 1rem;
