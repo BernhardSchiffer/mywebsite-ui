@@ -17,6 +17,8 @@ import { ProfileComponent } from "./pages/profile/profile.component";
 import { StackComponent } from "./pages/stack/stack.component";
 import { ProjectsComponent } from "./pages/projects/projects.component";
 import { FooterComponent } from "./components/footer/footer.component";
+import { AboutComponent } from "./pages/about/about.component";
+import { ContactComponent } from "./pages/contact/contact.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { FooterComponent } from "./components/footer/footer.component";
     ProfileComponent,
     StackComponent,
     ProjectsComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

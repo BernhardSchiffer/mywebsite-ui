@@ -10,6 +10,8 @@ import { AuthGuardService } from "./services/auth-guard/auth-guard.service";
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { StackComponent } from "./pages/stack/stack.component";
 import { ProjectsComponent } from "./pages/projects/projects.component";
+import { AboutComponent } from "./pages/about/about.component";
+import { ContactComponent } from "./pages/contact/contact.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -22,6 +24,8 @@ const routes: Routes = [
       { path: "projects", component: ProjectsComponent },
       { path: "registration", component: RegistrationComponent },
       { path: "login", component: LoginComponent },
+      { path: "about", component: AboutComponent },
+      { path: "contact", component: ContactComponent },
       {
         path: "profile",
         canActivate: [AuthGuardService],
