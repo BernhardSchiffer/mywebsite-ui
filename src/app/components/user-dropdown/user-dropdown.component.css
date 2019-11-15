@@ -1,11 +1,11 @@
 #userdropdown {
-  z-index: 1;
+  z-index: 9000;
   display: grid;
   background-color: var(--darkgray);
   padding: 1rem;
-  position: relative;
+  position: absolute;
   top: 3rem;
-  left: calc(95% - 17rem - 1px);
+  left: calc(95% - 17rem);
   width: 15rem;
   border-radius: 0 0 7px 7px;
   color: var(--white);

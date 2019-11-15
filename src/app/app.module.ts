@@ -14,6 +14,9 @@ import { RegistrationComponent } from "./pages/registration/registration.compone
 import { LoginComponent } from "./pages/login/login.component";
 import { DatenschutzComponent } from "./pages/datenschutz/datenschutz.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
+import { StackComponent } from "./pages/stack/stack.component";
+import { ProjectsComponent } from "./pages/projects/projects.component";
+import { FooterComponent } from "./components/footer/footer.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { ProfileComponent } from "./pages/profile/profile.component";
     RegistrationComponent,
     LoginComponent,
     DatenschutzComponent,
-    ProfileComponent
+    ProfileComponent,
+    StackComponent,
+    ProjectsComponent,
+    FooterComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

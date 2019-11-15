@@ -1,16 +1,9 @@
-<main class="center-text">
-  <form
-    id="register"
-    (submit)="register($event)"
-    class="text"
-    autocomplete="on"
-  >
-    <label>Benutzername:</label>
-    <input name="name" type="text" [(ngModel)]="username" />
-    <label>e-M@il:</label>
-    <input name="email" type="email" [(ngModel)]="email" />
-    <label>Passwort:</label>
-    <input name="password" type="password" [(ngModel)]="password" />
-    <button type="submit" class="submit">Registrieren</button>
-  </form>
-</main>
+<form id="register" (submit)="register($event)" class="text" autocomplete="on">
+  <label>Benutzername:</label>
+  <input name="name" type="text" [(ngModel)]="username" />
+  <label>e-M@il:</label>
+  <input name="email" type="email" [(ngModel)]="email" />
+  <label>Passwort:</label>
+  <input name="password" type="password" [(ngModel)]="password" />
+  <button type="submit" class="submit">Registrieren</button>
+</form>

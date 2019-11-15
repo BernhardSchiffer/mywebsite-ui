@@ -1,20 +1,10 @@
-main {
-  position: absolute;
-  background-color: var(--white);
-  min-height: calc(100vh - 2.95rem);
-  top: 2.95rem;
-  width: 100%;
-  z-index: 1;
-  overflow: hidden;
+:host {
+  display: grid;
+  height: 100%;
 }
 
-.center-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.text {
+form {
   padding: 0 2rem;
   width: 30vw;
+  margin: auto;
 }

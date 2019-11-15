@@ -8,6 +8,8 @@ import { RegistrationComponent } from "./pages/registration/registration.compone
 import { LoginComponent } from "./pages/login/login.component";
 import { AuthGuardService } from "./services/auth-guard/auth-guard.service";
 import { ProfileComponent } from "./pages/profile/profile.component";
+import { StackComponent } from "./pages/stack/stack.component";
+import { ProjectsComponent } from "./pages/projects/projects.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -15,7 +17,9 @@ const routes: Routes = [
     path: "",
     component: NormalLayoutComponent,
     children: [
-      { path: "datenschutz", component: DatenschutzComponent },
+      { path: "privacy", component: DatenschutzComponent },
+      { path: "stack", component: StackComponent },
+      { path: "projects", component: ProjectsComponent },
       { path: "registration", component: RegistrationComponent },
       { path: "login", component: LoginComponent },
       {
