@@ -85,7 +85,8 @@ app-nav-bar.sticky {
 .zeltlagerimg {
   height: 100%;
   width: 100%;
-  background-image: url("../../../pictures/Bild1.webp");
+  background-image: url("../../../pictures/Bild1.webp"),
+    url("../../../pictures/Bild1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
