@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { User } from "../../models/User";
-import { RegistrationService } from "src/app/services/registration/registration.service";
+import { RegistrationService } from "../../services/registration/registration.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit {
       .registerNewUser(newUser, this.password)
       .then(user => {
         myForm.reset();
-        this.router.navigateByUrl("/profile");
+        this.router.navigateByUrl("profile");
       })
       .catch();
     return false;
