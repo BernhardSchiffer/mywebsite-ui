@@ -2,16 +2,17 @@ import { Injectable } from "@angular/core";
 import { User } from "src/app/models/User";
 import { UserService } from "../user-service/user.service";
 import { TokenService } from "../token-service/token.service";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class RegistrationService {
+  baseUrl: string = environment.backendBaseUrl;
+
   constructor(
     private userService: UserService,
-    private tokenService: TokenService,
-    private http: HttpClient
+    private tokenService: TokenService
   ) {}
 
   registerNewUser(newUser: User, password: string): Promise<User> {
@@ -22,11 +23,7 @@ export class RegistrationService {
         password: password
       };
 
-      //let headers = new HttpHeaders();
-
-      //this.http.post("/api/users", JSON.stringify(body));
-
-      let res = await fetch("http://localhost:8080/api/users", {
+      let res = await fetch(this.baseUrl + "/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

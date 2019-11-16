@@ -2,11 +2,14 @@ import { Injectable } from "@angular/core";
 import { User } from "src/app/models/User";
 import { UserService } from "../user-service/user.service";
 import { TokenService } from "../token-service/token.service";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
+  baseUrl: string = environment.backendBaseUrl;
+
   constructor(
     private userService: UserService,
     private tokenService: TokenService
@@ -35,7 +38,7 @@ export class AuthService {
     return new Promise(async (resolve, reject) => {
       let user: User;
 
-      let res = await fetch("http://localhost:8080/api/auth", {
+      let res = await fetch(this.baseUrl + "/auth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
