@@ -94,7 +94,7 @@ app-nav-bar.sticky {
 }
 
 .colorpicker {
-  height: 70vh;
+  height: 60vh;
   text-align: center;
   padding: 0;
   background: linear-gradient(
@@ -109,8 +109,63 @@ app-nav-bar.sticky {
 }
 
 .colorpicker h1 {
-  top: 30vh;
+  top: 25vh;
   color: white;
+}
+
+.aboutme h1 {
+  top: 40vh;
+  font-size: 2.3rem;
+  left: -1.5rem;
+  color: var(--black);
+}
+
+.aboutme {
+  height: 60vh;
+  text-align: center;
+  background-color: var(--black);
+  background-image: url(../../../assets/aboutme_banner_dark.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.projects h1 {
+  top: 22vh;
+  margin: auto;
+  font-size: 6rem;
+  background-color: rgba(95, 95, 95, 0.6);
+  color: var(--black);
+  width: 40rem;
+  padding: 1.5rem 0rem;
+}
+
+.projects {
+  height: 60vh;
+  background-color: var(--white);
+  background-image: url(../../../assets/projects_banner_light.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.techstack h1 {
+  top: 22vh;
+  margin: auto;
+  font-size: 6rem;
+  color: var(--white);
+  background-color: rgba(130, 130, 130, 0.3);
+  width: 40rem;
+  padding: 1.5rem 0rem;
+}
+
+.techstack {
+  height: 60vh;
+  text-align: center;
+  background-image: url(../../../assets/techstack_banner_dark.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 footer {

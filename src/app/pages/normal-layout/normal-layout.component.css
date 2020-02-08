@@ -1,5 +1,4 @@
 :host {
-  background-color: var(--green);
   color: var(--black);
   width: 100%;
   display: grid;
@@ -21,5 +20,6 @@ main {
 }
 
 app-footer {
+  padding-top: 3rem;
   grid-area: footer;
 }
