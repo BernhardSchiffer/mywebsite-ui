@@ -1,4 +1,4 @@
-version: "2.3"
+version: "3.3"
 
 services:
   mywebsite-ui:
@@ -7,3 +7,4 @@ services:
     build: .
     ports:
       - 80:80
+      - 443:443

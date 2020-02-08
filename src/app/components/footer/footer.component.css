@@ -1,0 +1,20 @@
+footer {
+  padding: 1.5rem;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  justify-items: center;
+  background-color: var(--darkgray);
+  color: var(--white);
+}
+
+.vertical-grid {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+a {
+  color: var(--white);
+  margin: 0.2rem;
+}

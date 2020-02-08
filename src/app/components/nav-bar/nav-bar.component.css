@@ -1,175 +1,163 @@
-nav
-{
-   z-index: 4;
-   position: absolute;
-   overflow: hidden;
-   background-color: var(--green);
-   width: 100%;
-   display: grid;
-   grid-template-columns: auto 1fr auto;
-   grid-template-areas: 
-      "home inhalt user";
-   box-sizing: border-box;
-   padding: 0 5vw;
+nav {
+  z-index: 9001;
+  position: absolute;
+  overflow: hidden;
+  background-color: var(--green);
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "home inhalt user";
+  box-sizing: border-box;
+  padding: 0 5vw;
 }
 
-nav .right
-{
-   grid-area: user;
+:host {
+  height: 3rem;
+  width: 100%;
 }
 
-nav .left
-{
-   grid-area: inhalt;
+nav .right {
+  grid-area: user;
 }
 
-nav a
-{
-   float: left;
-   display: block;
-   color: var(--white);
-   text-align: center;
-   padding: 14px 16px;
-   text-decoration: none;
-   font-size: 1rem;
+nav .left {
+  grid-area: inhalt;
 }
 
-nav a:hover
-{
-   background-color: var(--white);
-   color: var(--black);
+nav a {
+  float: left;
+  display: block;
+  color: var(--white);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
-nav .left a
-{
-   float: left;
+nav a:hover {
+  background-color: var(--white);
+  color: var(--black);
 }
 
-nav .right a
-{
-   float: right;
+nav .left a {
+  float: left;
 }
 
-nav .home
-{
-   grid-area: home;
+nav .right a {
+  float: right;
 }
 
-nav .icon
-{
-   grid-area: nav-icon;
-   height: 35px;
-   width: 35px;
-   padding: 6px;
-   cursor: pointer;
-   display: none;
+nav .home {
+  grid-area: home;
 }
 
-.bar1, .bar2, .bar3
-{
-   height: 3px;
-   width: 35px;
-   background-color: var(--white);
-   margin: 6.66px 0px;
-   transition: transform 0.4s, opacity 0.2s;
+nav .icon {
+  grid-area: nav-icon;
+  height: 35px;
+  width: 35px;
+  padding: 6px;
+  cursor: pointer;
+  display: none;
 }
 
-.navopen .bar1
-{
-   transform: translate(0px, 9.66px) rotate(135deg);
+.bar1,
+.bar2,
+.bar3 {
+  height: 3px;
+  width: 35px;
+  background-color: var(--white);
+  margin: 6.66px 0px;
+  transition: transform 0.4s, opacity 0.2s;
 }
 
-.navopen .bar2
-{
-   opacity: 0;
+.navopen .bar1 {
+  transform: translate(0px, 9.66px) rotate(135deg);
 }
 
-.navopen .bar3
-{
-   transform: translate(0px, -9.66px) rotate(-135deg);
+.navopen .bar2 {
+  opacity: 0;
 }
 
-nav .title
-{
-   grid-area: title;
-   color: var(--white);
-   display: none;
-   margin: auto;
+.navopen .bar3 {
+  transform: translate(0px, -9.66px) rotate(-135deg);
 }
 
-#user
-{
-   text-align: center;
-   width: 15rem;
+nav .title {
+  grid-area: title;
+  color: var(--white);
+  display: none;
+  margin: auto;
 }
 
-@media screen and (max-width: 800px)
-{  
-   app-user-dropdown
-   {
-      display: none;
-   }
-   
-   nav .left, nav .right
-   {
-      background-color: var(--darkgray);
-      display: none;
-   }
-   
-   nav .left a, nav .right a
-   {
-      float: left;
-   }
+#user {
+  text-align: center;
+  width: 15rem;
+}
 
-   nav .left a:hover, nav .right a:hover
-   {
-      background-color: var(--lightgray);
-      color: var(--white);
-   }
+app-user-dropdown {
+  display: block;
+}
 
-   nav
-   {
-      padding: 0;
-      grid-template-columns: 5rem 1fr 5rem;
-      grid-template-rows: auto;
-      grid-template-areas:
-         "home title nav-icon "
-         "inhalt inhalt inhalt"
-         "user user user";
-   }
-   
-   nav .icon
-   {
-      display: block;
-      margin: auto;
-      margin-left: 1.6rem;
-   }
+@media screen and (max-width: 800px) {
+  app-user-dropdown {
+    display: none;
+  }
 
-   nav .home
-   {
-      display: block;
-   }
+  nav .left,
+  nav .right {
+    background-color: var(--darkgray);
+    display: none;
+  }
 
-   nav .title
-   {
-      display: block;
-   }
+  nav .left a,
+  nav .right a {
+    float: left;
+  }
 
-   nav.navopen .left, nav.navopen .right
-   {
-      width: 100%;
-      display: block;
-   }
-   
-   nav.navopen .left a, nav.navopen .right a
-   {
-      width: 100%;
-      text-align: start;
-   }
+  nav .left a:hover,
+  nav .right a:hover {
+    background-color: var(--lightgray);
+    color: var(--white);
+  }
 
-   #user
-   {
-      width: 100%;
-      text-align: start;
-   }
+  nav {
+    padding: 0;
+    grid-template-columns: 5rem 1fr 5rem;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "home title nav-icon "
+      "inhalt inhalt inhalt"
+      "user user user";
+  }
+
+  nav .icon {
+    display: block;
+    margin: auto;
+    margin-left: 1.6rem;
+  }
+
+  nav .home {
+    display: block;
+  }
+
+  nav .title {
+    display: block;
+  }
+
+  nav.navopen .left,
+  nav.navopen .right {
+    width: 100%;
+    display: block;
+  }
+
+  nav.navopen .left a,
+  nav.navopen .right a {
+    width: 100%;
+    text-align: start;
+  }
+
+  #user {
+    width: 100%;
+    text-align: start;
+  }
 }

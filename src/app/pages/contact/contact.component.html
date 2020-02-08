@@ -1,0 +1,90 @@
+<section>
+  <h1>#Contact me</h1>
+  <p class="text">
+    If you want to get in touch with me please use the contact form below.
+  </p>
+  <form
+    id="questionForm"
+    [formGroup]="questionForm"
+    (ngSubmit)="sendQuestion(questionForm.value)"
+    autocomplete="off"
+  >
+    <div class="firsthalfgrid">
+      <label>Name:</label>
+      <input type="text" formControlName="questionName" placeholder="Name" />
+      <div
+        class="hint-text"
+        *ngIf="
+          !questionForm.controls['questionName'].valid &&
+          questionForm.controls['questionName'].touched
+        "
+      >
+        Put in your name.
+      </div>
+    </div>
+    <div class="secondhalfgrid">
+      <label>E-Mail:</label>
+      <input
+        type="email"
+        formControlName="questionEmail"
+        placeholder="E-M@il"
+      />
+      <div
+        class="hint-text"
+        *ngIf="
+          !questionForm.controls['questionEmail'].valid &&
+          questionForm.controls['questionEmail'].touched
+        "
+      >
+        Put in your e-mail address.
+      </div>
+    </div>
+    <div class="fullgrid">
+      <label>Subject:</label>
+      <input
+        type="text"
+        formControlName="questionSubject"
+        placeholder="Subject"
+      />
+      <div
+        class="hint-text"
+        *ngIf="
+          !questionForm.controls['questionSubject'].valid &&
+          questionForm.controls['questionSubject'].touched
+        "
+      >
+        Put in the subject of your message.
+      </div>
+    </div>
+    <div class="fullgrid">
+      <label>Message:</label>
+      <textarea
+        formControlName="question"
+        cols="89"
+        rows="10"
+        value=""
+      ></textarea>
+      <div
+        class="hint-text"
+        *ngIf="
+          !questionForm.controls['question'].valid &&
+          questionForm.controls['question'].touched
+        "
+      >
+        Put in your Message.
+      </div>
+    </div>
+    <button
+      class="submit grid-start"
+      type="submit"
+      [disabled]="!questionForm.valid || buttondisabled"
+    >
+      submit
+    </button>
+    <div class="errorMessage fullgrid">
+      {{ this.errorMessage }}
+    </div>
+  </form>
+  <div id="confettiCanon1"></div>
+  <div id="confettiCanon2"></div>
+</section>

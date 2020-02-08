@@ -1,0 +1,10 @@
+:host {
+  display: grid;
+  height: 100%;
+}
+
+form {
+  margin: auto;
+  padding: 0 2rem;
+  width: 30vw;
+}

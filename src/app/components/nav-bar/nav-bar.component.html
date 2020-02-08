@@ -1,4 +1,4 @@
-<nav id="navbar" [ngClass]="isOpen ? 'navopen' : ''">
+<nav [ngClass]="isOpen ? 'navopen' : ''">
   <a href="/" class="home">Home</a>
   <span class="title">{{ navTitle }}</span>
   <div class="icon" (click)="openNav()">
@@ -7,9 +7,13 @@
     <div class="bar3"></div>
   </div>
   <div class="left">
-    <a href="/zeltlager">Zeltlager</a>
-    <a href="/colorpicker">Colorpicker</a>
-    <a href="/datenschutz">Datenschutz</a>
+    <!--
+      <a [routerLink]="['/zeltlager']">Zeltlager</a>
+      <a [routerLink]="['/colorpicker']">Colorpicker</a>
+    -->
+    <a [routerLink]="['/projects']">Projects</a>
+    <a [routerLink]="['/stack']">Tech Stack</a>
+    <a [routerLink]="['/about']">About Me</a>
   </div>
   <div class="right">
     <a
@@ -17,7 +21,7 @@
       id="user"
       (mouseenter)="showLogin()"
       (mouseleave)="hideLogin()"
-      href="/dashboard"
+      [routerLink]="['/profile']"
       >{{ user.name }}</a
     >
     <a
@@ -25,10 +29,10 @@
       id="login"
       (mouseenter)="showLogin()"
       (mouseleave)="hideLogin()"
-      href="/login"
+      [routerLink]="['/login']"
       >Login</a
     >
-    <a *ngIf="!user" href="/registration">Registrierung</a>
+    <a *ngIf="!user" [routerLink]="['/registration']">Registration</a>
   </div>
 </nav>
 <app-user-dropdown

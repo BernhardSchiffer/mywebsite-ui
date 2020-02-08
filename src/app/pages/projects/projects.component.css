@@ -1,0 +1,16 @@
+p {
+  padding: 0.25rem 2rem;
+}
+
+.text {
+  margin: 2rem 0;
+  width: 60vw;
+}
+
+.center-text {
+  justify-self: center;
+}
+
+:host {
+  display: grid;
+}

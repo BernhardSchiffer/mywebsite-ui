@@ -1,0 +1,7 @@
+<form id="loginform" (submit)="loginUser($event)" autocomplete="on">
+  <label>e-M@il:</label>
+  <input name="email" type="email" [(ngModel)]="email" />
+  <label>Passwort:</label>
+  <input name="password" type="password" [(ngModel)]="password" />
+  <button type="submit" class="submit">Anmelden</button>
+</form>

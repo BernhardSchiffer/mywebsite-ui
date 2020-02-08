@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Output } from "@angular/core";
 
 @Injectable({
   providedIn: "root"
@@ -6,19 +6,19 @@ import { Injectable } from "@angular/core";
 export class TokenService {
   constructor() {}
 
-  getToken(key) {
-    //return localStorage.getItem(key);
-    return this.getCookie(key);
+  getToken(key: string): string {
+    return localStorage.getItem(key);
+    //return this.getCookie(key);
   }
 
-  saveToken(key, token) {
-    //localStorage.setItem(key, token);
-    this.setCookie(key, token);
+  saveToken(key: string, token: string) {
+    localStorage.setItem(key, token);
+    //this.setCookie(key, token);
   }
 
-  deleteToken(key) {
-    //localStorage.removeItem(key);
-    this.deleteCookie(key);
+  deleteToken(key: string) {
+    localStorage.removeItem(key);
+    //this.deleteCookie(key);
   }
 
   private setCookie(cname: string, cvalue: number, exdays: number = 1) {
