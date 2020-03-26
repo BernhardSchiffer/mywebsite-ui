@@ -1,7 +1,14 @@
-<form id="loginform" (submit)="loginUser($event)" autocomplete="on">
-  <label>e-M@il:</label>
-  <input name="email" type="email" [(ngModel)]="email" />
-  <label>Passwort:</label>
-  <input name="password" type="password" [(ngModel)]="password" />
-  <button type="submit" class="submit">Anmelden</button>
-</form>
+<main>
+  <p class="disclaimer">
+    This Registration is just for demostration purposes only. It has no special use.
+    Don't use any login you might use on other websites.
+  </p>
+
+  <form id="loginform" (submit)="loginUser($event)" autocomplete="on">
+    <label>e-M@il:</label>
+    <input name="email" type="email" [(ngModel)]="email" />
+    <label>Passwort:</label>
+    <input name="password" type="password" [(ngModel)]="password" />
+    <button type="submit" class="submit">Anmelden</button>
+  </form>
+</main>

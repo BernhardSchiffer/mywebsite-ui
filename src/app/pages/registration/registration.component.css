@@ -3,8 +3,12 @@
   height: 100%;
 }
 
+main {
+  margin: auto;
+  width: 30vw;
+}
+
 form {
   margin: auto;
   padding: 0 2rem;
-  width: 30vw;
 }

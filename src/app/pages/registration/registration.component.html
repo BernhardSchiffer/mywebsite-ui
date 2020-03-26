@@ -1,9 +1,16 @@
-<form id="register" (submit)="register($event)" class="text" autocomplete="on">
-  <label>Benutzername:</label>
-  <input name="name" type="text" [(ngModel)]="username" />
-  <label>e-M@il:</label>
-  <input name="email" type="email" [(ngModel)]="email" />
-  <label>Passwort:</label>
-  <input name="password" type="password" [(ngModel)]="password" />
-  <button type="submit" class="submit">Registrieren</button>
-</form>
+<main>
+  <p class="disclaimer">
+    This Registration is just for demostration purposes only. It has no special use.
+    Don't use any login you might use on other websites.
+  </p>
+
+  <form id="register" (submit)="register($event)" class="text" autocomplete="on">
+    <label>Benutzername:</label>
+    <input name="name" type="text" [(ngModel)]="username" />
+    <label>e-M@il:</label>
+    <input name="email" type="email" [(ngModel)]="email" />
+    <label>Passwort:</label>
+    <input name="password" type="password" [(ngModel)]="password" />
+    <button type="submit" class="submit">Registrieren</button>
+  </form>
+</main>

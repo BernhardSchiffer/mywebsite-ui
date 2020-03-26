@@ -95,3 +95,13 @@ button:disabled {
 button:disabled:hover {
   background-color: var(--lightgray);
 }
+
+.disclaimer {
+  background-color: var(--lightgray);
+  padding: 1rem;
+  border-radius: 10px;
+  color: var(--white);
+  border-color: var(--darkgray);
+  border-style: solid;
+  border-width: 2px;
+}
