@@ -12,7 +12,7 @@ import { ColorpickerComponent } from "./pages/colorpicker/colorpicker.component"
 import { NormalLayoutComponent } from "./pages/normal-layout/normal-layout.component";
 import { RegistrationComponent } from "./pages/registration/registration.component";
 import { LoginComponent } from "./pages/login/login.component";
-import { DatenschutzComponent } from "./pages/datenschutz/datenschutz.component";
+import { DatenschutzComponent } from "./pages/privacy/datenschutz.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { StackComponent } from "./pages/stack/stack.component";
 import { ProjectsComponent } from "./pages/projects/projects.component";
@@ -42,4 +42,4 @@ import { ContactComponent } from "./pages/contact/contact.component";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

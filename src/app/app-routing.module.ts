@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./pages/home/home.component";
 import { ColorpickerComponent } from "./pages/colorpicker/colorpicker.component";
 import { NormalLayoutComponent } from "./pages/normal-layout/normal-layout.component";
-import { DatenschutzComponent } from "./pages/datenschutz/datenschutz.component";
+import { DatenschutzComponent } from "./pages/privacy/datenschutz.component";
 import { RegistrationComponent } from "./pages/registration/registration.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { AuthGuardService } from "./services/auth-guard/auth-guard.service";
@@ -40,4 +40,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
