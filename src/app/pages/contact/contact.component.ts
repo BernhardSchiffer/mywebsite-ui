@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Question } from "../../models/Question";
 import { confetti } from "dom-confetti";
+import { ContactService } from 'src/app/services/contact-service/contact.service';
 
 @Component({
   selector: "app-contact",
@@ -17,7 +18,7 @@ export class ContactComponent implements OnInit {
   question: string;
   buttondisabled: boolean = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private contactService: ContactService) {
     this.questionForm = this.fb.group({
       questionName: [
         "",
@@ -75,21 +76,15 @@ export class ContactComponent implements OnInit {
 
     let myForm: HTMLFormElement = document.forms["questionForm"];
     let question = await new Question(formData);
+    this.errorMessage = ""
 
-    fetch("https://api.schiffer.dev/forms/contactform", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(question)
-    })
-      .then(res => {
+    this.contactService.sendContactForm(question)
+      .then(() => {
         confetti(confettiCanon1, confettiConfig1);
         confetti(confettiCanon2, confettiConfig2);
         myForm.reset();
       })
-      .catch(error => {
+      .catch(() => {
         this.errorMessage = "Ups, an error occured, please try again";
       });
 
