@@ -52,7 +52,7 @@ export class ContactComponent implements OnInit {
     this.userService.currentUser.subscribe(user => this.user = user);
   }
 
-  async sendQuestion(formData) {
+  sendQuestion(formData) {
     this.buttondisabled = true;
 
     const confettiCanon1: HTMLElement = document.querySelector(
@@ -83,8 +83,8 @@ export class ContactComponent implements OnInit {
       colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
     };
 
-    let myForm: HTMLFormElement = document.forms["questionForm"];
-    let question = await new Question(formData);
+    const myForm: HTMLFormElement = document.forms["questionForm"];
+    const question = new Question(formData);
     this.errorMessage = ""
 
     this.contactService.sendContactForm(question)

@@ -23,16 +23,18 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || "/";
   }
 
-  async loginUser(event) {
+  loginUser(event) {
     event.preventDefault();
-    let myForm = document.forms["loginform"];
+    const myForm = document.forms["loginform"];
 
-    let user = await this.authService.login(this.email, this.password);
+    this.authService
+      .login(this.email, this.password)
+      .then(() => {
+        myForm.reset();
+        this.router.navigateByUrl(this.returnUrl);
+      })
+      .catch();
 
-    if (user) {
-      myForm.reset();
-      this.router.navigateByUrl(this.returnUrl);
-    }
     return false;
   }
 }
