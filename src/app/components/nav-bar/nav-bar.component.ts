@@ -17,7 +17,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
     this.dropdown = document.getElementById("userdropdown");
-    this.user = this.userService.getUser();
+    this.userService.currentUser.subscribe(user => this.user = user);
   }
 
   showLogin() {

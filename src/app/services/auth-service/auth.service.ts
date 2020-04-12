@@ -27,6 +27,7 @@ export class AuthService {
 
   logout() {
     this.tokenService.deleteToken("jwt");
+    this.userService.deleteUser();
   }
 
   async login(username: string, password: string): Promise<User> {

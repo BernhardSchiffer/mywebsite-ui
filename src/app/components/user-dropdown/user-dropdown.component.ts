@@ -21,22 +21,23 @@ export class UserDropdownComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.user = this.userService.getUser();
+    this.userService.currentUser.subscribe(user => this.user = user);
   }
 
   async loginUser(event) {
     event.preventDefault();
     let myForm = document.forms["login"];
-
+    
     this.user = await this.authService.login(this.email, this.password);
-
+    this.userService.saveUser(this.user);
     myForm.reset();
+
     return false;
   }
 
   async logoutUser() {
-    this.userService.deleteUser();
     this.tokenService.deleteToken("jwt");
     this.user = null;
+    this.userService.deleteUser();
   }
 }
