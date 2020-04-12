@@ -16,14 +16,16 @@ export class RegistrationService {
   ) {}
 
   registerNewUser(newUser: User, password: string): Promise<User> {
-    return new Promise(async (resolve, reject) => {
-      let body = {
-        name: newUser.name,
-        email: newUser.email,
-        password: password
-      };
+    
+    const body = {
+      name: newUser.name,
+      email: newUser.email,
+      password: password
+    };
 
-      let res = await fetch(this.baseUrl + "/users", {
+    return new Promise(async (resolve, reject) => {
+
+      const res = await fetch(this.baseUrl + "/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -31,14 +33,12 @@ export class RegistrationService {
         body: JSON.stringify(body)
       });
       if (res.ok) {
-        let user;
-        let body = await res.json();
-        if (body) {
-          let user = body;
-          this.userService.saveUser(user);
-        }
         if (res.headers.get("x-auth-token")) {
           this.tokenService.saveToken("jwt", res.headers.get("x-auth-token"));
+        }
+        const user = await res.json();
+        if (user) {
+          this.userService.saveUser(user);
         }
         resolve(user);
       } else {

@@ -20,18 +20,19 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {}
 
-  async register(event) {
+  register(event) {
     event.preventDefault();
-    let myForm = document.forms["register"];
-    let newUser = new User(this.username, this.email);
+    const myForm = document.forms["register"];
+    const newUser = new User(this.username, this.email);
 
     this.registrationService
       .registerNewUser(newUser, this.password)
-      .then(user => {
+      .then(() => {
         myForm.reset();
         this.router.navigateByUrl("profile");
       })
       .catch();
+
     return false;
   }
 }

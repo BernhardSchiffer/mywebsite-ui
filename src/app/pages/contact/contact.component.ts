@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Question } from "../../models/Question";
 import { confetti } from "dom-confetti";
 import { ContactService } from 'src/app/services/contact-service/contact.service';
+import { UserService } from 'src/app/services/user-service/user.service';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: "app-contact",
@@ -17,8 +19,13 @@ export class ContactComponent implements OnInit {
   questionEmail: string;
   question: string;
   buttondisabled: boolean = false;
+  user: User;
 
-  constructor(private fb: FormBuilder, private contactService: ContactService) {
+  constructor(
+    private fb: FormBuilder,
+    private contactService: ContactService,
+    private userService: UserService) {
+
     this.questionForm = this.fb.group({
       questionName: [
         "",
@@ -41,9 +48,11 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userService.currentUser.subscribe(user => this.user = user);
+  }
 
-  async sendQuestion(formData) {
+  sendQuestion(formData) {
     this.buttondisabled = true;
 
     const confettiCanon1: HTMLElement = document.querySelector(
@@ -74,8 +83,8 @@ export class ContactComponent implements OnInit {
       colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
     };
 
-    let myForm: HTMLFormElement = document.forms["questionForm"];
-    let question = await new Question(formData);
+    const myForm: HTMLFormElement = document.forms["questionForm"];
+    const question = new Question(formData);
     this.errorMessage = ""
 
     this.contactService.sendContactForm(question)

@@ -17,10 +17,8 @@ export class AuthService {
 
   authenticated(): boolean {
     if (this.tokenService.getToken("jwt")) {
-      console.log("true");
       return true;
     } else {
-      console.log("false");
       return false;
     }
   }
@@ -31,15 +29,15 @@ export class AuthService {
   }
 
   async login(username: string, password: string): Promise<User> {
-    let credentials = {
+    
+    const credentials = {
       email: username,
       password: password
     };
 
     return new Promise(async (resolve, reject) => {
-      let user: User;
 
-      let res = await fetch(this.baseUrl + "/auth", {
+      const res = await fetch(this.baseUrl + "/auth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -50,9 +48,8 @@ export class AuthService {
         if (res.headers.get("x-auth-token")) {
           this.tokenService.saveToken("jwt", res.headers.get("x-auth-token"));
         }
-        let body = await res.json();
-        if (body) {
-          user = body;
+        const user = await res.json();
+        if (user) {
           this.userService.saveUser(user);
         }
         resolve(user);

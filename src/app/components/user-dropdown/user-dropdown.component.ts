@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { User } from "../../models/User";
 import { UserService } from "../../services/user-service/user.service";
-import { TokenService } from "../../services/token-service/token.service";
 import { AuthService } from "src/app/services/auth-service/auth.service";
 
 @Component({
@@ -16,7 +15,6 @@ export class UserDropdownComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private tokenService: TokenService,
     private authService: AuthService
   ) {}
 
@@ -24,20 +22,18 @@ export class UserDropdownComponent implements OnInit {
     this.userService.currentUser.subscribe(user => this.user = user);
   }
 
-  async loginUser(event) {
+  loginUser(event) {
     event.preventDefault();
-    let myForm = document.forms["login"];
+    const myForm = document.forms["login"];
     
-    this.user = await this.authService.login(this.email, this.password);
-    this.userService.saveUser(this.user);
-    myForm.reset();
+    this.authService.login(this.email, this.password)
+      .then(() => myForm.reset());
 
     return false;
   }
 
-  async logoutUser() {
-    this.tokenService.deleteToken("jwt");
+  logoutUser() {
+    this.authService.logout();
     this.user = null;
-    this.userService.deleteUser();
   }
 }
