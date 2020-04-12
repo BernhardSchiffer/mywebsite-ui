@@ -31,4 +31,12 @@ export class NavBarComponent implements OnInit {
   openNav() {
     this.isOpen = !this.isOpen;
   }
+
+  onLogout() {
+    this.user = this.userService.getUser();
+  }
+
+  onLogin() {
+    this.user = this.userService.getUser();
+  }
 }
