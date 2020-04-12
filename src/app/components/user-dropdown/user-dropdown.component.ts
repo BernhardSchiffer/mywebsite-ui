@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { User } from "../../models/User";
 import { UserService } from "../../services/user-service/user.service";
 import { TokenService } from "../../services/token-service/token.service";
@@ -10,10 +10,7 @@ import { AuthService } from "src/app/services/auth-service/auth.service";
   styleUrls: ["./user-dropdown.component.css"]
 })
 export class UserDropdownComponent implements OnInit {
-  @Input() user: User = null;
-  @Output() logout:  EventEmitter<any> = new EventEmitter();
-  @Output() login: EventEmitter<any> = new EventEmitter();
-
+  user: User = null;
   email: string = "";
   password: string = "";
 
@@ -24,7 +21,7 @@ export class UserDropdownComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.user = this.userService.getUser();
+    this.userService.currentUser.subscribe(user => this.user = user);
   }
 
   async loginUser(event) {
@@ -32,16 +29,15 @@ export class UserDropdownComponent implements OnInit {
     let myForm = document.forms["login"];
     
     this.user = await this.authService.login(this.email, this.password);
-    this.login.emit(this.user);
+    this.userService.saveUser(this.user);
     myForm.reset();
 
     return false;
   }
 
   async logoutUser() {
-    this.userService.deleteUser();
     this.tokenService.deleteToken("jwt");
     this.user = null;
-    this.logout.emit(null);
+    this.userService.deleteUser();
   }
 }

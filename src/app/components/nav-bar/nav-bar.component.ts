@@ -17,7 +17,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
     this.dropdown = document.getElementById("userdropdown");
-    this.user = this.userService.getUser();
+    this.userService.currentUser.subscribe(user => this.user = user);
   }
 
   showLogin() {
@@ -30,13 +30,5 @@ export class NavBarComponent implements OnInit {
 
   openNav() {
     this.isOpen = !this.isOpen;
-  }
-
-  onLogout() {
-    this.user = this.userService.getUser();
-  }
-
-  onLogin() {
-    this.user = this.userService.getUser();
   }
 }
