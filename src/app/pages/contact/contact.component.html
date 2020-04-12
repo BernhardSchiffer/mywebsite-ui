@@ -11,7 +11,7 @@
   >
     <div class="firsthalfgrid">
       <label>Name:</label>
-      <input type="text" formControlName="questionName" placeholder="Name" />
+      <input type="text" formControlName="questionName" placeholder="Name" [ngModel]="user.name"/>
       <div
         class="hint-text"
         *ngIf="
@@ -28,6 +28,7 @@
         type="email"
         formControlName="questionEmail"
         placeholder="E-M@il"
+        [ngModel]="user.email"
       />
       <div
         class="hint-text"

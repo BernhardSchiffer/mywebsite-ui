@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Question } from "../../models/Question";
 import { confetti } from "dom-confetti";
 import { ContactService } from 'src/app/services/contact-service/contact.service';
+import { UserService } from 'src/app/services/user-service/user.service';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: "app-contact",
@@ -17,8 +19,13 @@ export class ContactComponent implements OnInit {
   questionEmail: string;
   question: string;
   buttondisabled: boolean = false;
+  user: User;
 
-  constructor(private fb: FormBuilder, private contactService: ContactService) {
+  constructor(
+    private fb: FormBuilder,
+    private contactService: ContactService,
+    private userService: UserService) {
+
     this.questionForm = this.fb.group({
       questionName: [
         "",
@@ -41,7 +48,9 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userService.currentUser.subscribe(user => this.user = user);
+  }
 
   async sendQuestion(formData) {
     this.buttondisabled = true;
