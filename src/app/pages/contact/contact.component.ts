@@ -1,10 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 import { Question } from "../../models/Question";
 import { confetti } from "dom-confetti";
 import { ContactService } from 'src/app/services/contact-service/contact.service';
 import { UserService } from 'src/app/services/user-service/user.service';
-import { User } from 'src/app/models/User';
 
 @Component({
   selector: "app-contact",
@@ -14,27 +13,28 @@ import { User } from 'src/app/models/User';
 export class ContactComponent implements OnInit {
   errorMessage: string;
 
-  questionForm: FormGroup;
-  questionName: string;
-  questionEmail: string;
-  question: string;
+  contactForm = new FormGroup({
+    name: new FormControl(''),
+    email: new FormControl(''),
+    subject: new FormControl(''),
+    question: new FormControl('')
+  });
   buttondisabled: boolean = false;
-  user: User;
 
   constructor(
     private fb: FormBuilder,
     private contactService: ContactService,
     private userService: UserService) {
 
-    this.questionForm = this.fb.group({
-      questionName: [
+    this.contactForm = this.fb.group({
+      name: [
         "",
         Validators.compose([
           Validators.required,
           Validators.pattern("[^0-9]{1,}")
         ])
       ],
-      questionEmail: [
+      email: [
         "",
         Validators.compose([
           Validators.required,
@@ -43,13 +43,25 @@ export class ContactComponent implements OnInit {
           )
         ])
       ],
-      questionSubject: ["", Validators.required],
+      subject: ["", Validators.required],
       question: ["", Validators.required]
     });
   }
 
   ngOnInit() {
-    this.userService.currentUser.subscribe(user => this.user = user);
+    this.userService.currentUser.subscribe(user => {
+      if(user) {
+        this.contactForm.patchValue({
+          name: user.name,
+          email: user.email
+        });
+      } else {
+        this.contactForm.patchValue({
+          name: '',
+          email: ''
+        });
+      }
+    });
   }
 
   sendQuestion(formData) {
@@ -83,7 +95,7 @@ export class ContactComponent implements OnInit {
       colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
     };
 
-    const myForm: HTMLFormElement = document.forms["questionForm"];
+    const myForm: HTMLFormElement = document.forms["contactForm"];
     const question = new Question(formData);
     this.errorMessage = ""
 
