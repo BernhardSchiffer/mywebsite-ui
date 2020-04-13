@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { User } from "../../models/User";
 import { UserService } from "../../services/user-service/user.service";
 import { AuthService } from "src/app/services/auth-service/auth.service";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: "app-user-dropdown",
@@ -10,24 +11,33 @@ import { AuthService } from "src/app/services/auth-service/auth.service";
 })
 export class UserDropdownComponent implements OnInit {
   user: User = null;
+  returnUrl: "";
   email: string = "";
   password: string = "";
 
   constructor(
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.userService.currentUser.subscribe(user => this.user = user);
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || this.router.url;
   }
 
   loginUser(event) {
     event.preventDefault();
     const myForm = document.forms["login"];
     
-    this.authService.login(this.email, this.password)
-      .then(() => myForm.reset());
+    this.authService
+      .login(this.email, this.password)
+      .then(() => {
+        myForm.reset();
+        this.router.navigateByUrl(this.returnUrl)
+      })
+      .catch();
 
     return false;
   }
