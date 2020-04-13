@@ -3,16 +3,19 @@ import { User } from "src/app/models/User";
 import { UserService } from "../user-service/user.service";
 import { TokenService } from "../token-service/token.service";
 import { environment } from "../../../environments/environment";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
   baseUrl: string = environment.backendBaseUrl;
+  protectedRoutes = ['/profile'];
 
   constructor(
     private userService: UserService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private router: Router
   ) {}
 
   authenticated(): boolean {
@@ -26,6 +29,10 @@ export class AuthService {
   logout() {
     this.tokenService.deleteToken("jwt");
     this.userService.deleteUser();
+    
+    if(this.protectedRoutes.includes(this.router.url)) {
+      this.router.navigate(["/"]);
+    }
   }
 
   async login(username: string, password: string): Promise<User> {
