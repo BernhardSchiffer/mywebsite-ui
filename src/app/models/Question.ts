@@ -5,9 +5,9 @@ export class Question {
   question: string;
 
   constructor(data) {
-    this.name = data.questionName.trim();
-    this.email = data.questionEmail.trim();
-    this.subject = data.questionSubject.trim();
+    this.name = data.name.trim();
+    this.email = data.email.trim();
+    this.subject = data.subject.trim();
     this.question = data.question.trim();
   }
 }
