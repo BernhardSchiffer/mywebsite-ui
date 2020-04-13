@@ -4,19 +4,19 @@
     If you want to get in touch with me please use the contact form below.
   </p>
   <form
-    id="questionForm"
-    [formGroup]="questionForm"
-    (ngSubmit)="sendQuestion(questionForm.value)"
+    id="contactForm"
+    [formGroup]="contactForm"
+    (ngSubmit)="sendQuestion(contactForm.value)"
     autocomplete="off"
   >
     <div class="firsthalfgrid">
       <label>Name:</label>
-      <input type="text" formControlName="questionName" placeholder="Name" [ngModel]="user?.name"/>
+      <input type="text" formControlName="name" placeholder="Name"/>
       <div
         class="hint-text"
         *ngIf="
-          !questionForm.controls['questionName'].valid &&
-          questionForm.controls['questionName'].touched
+          !contactForm.controls['name'].valid &&
+          contactForm.controls['name'].touched
         "
       >
         Put in your name.
@@ -26,15 +26,14 @@
       <label>E-Mail:</label>
       <input
         type="email"
-        formControlName="questionEmail"
+        formControlName="email"
         placeholder="E-M@il"
-        [ngModel]="user?.email"
       />
       <div
         class="hint-text"
         *ngIf="
-          !questionForm.controls['questionEmail'].valid &&
-          questionForm.controls['questionEmail'].touched
+          !contactForm.controls['email'].valid &&
+          contactForm.controls['email'].touched
         "
       >
         Put in your e-mail address.
@@ -44,14 +43,14 @@
       <label>Subject:</label>
       <input
         type="text"
-        formControlName="questionSubject"
+        formControlName="subject"
         placeholder="Subject"
       />
       <div
         class="hint-text"
         *ngIf="
-          !questionForm.controls['questionSubject'].valid &&
-          questionForm.controls['questionSubject'].touched
+          !contactForm.controls['subject'].valid &&
+          contactForm.controls['subject'].touched
         "
       >
         Put in the subject of your message.
@@ -68,8 +67,8 @@
       <div
         class="hint-text"
         *ngIf="
-          !questionForm.controls['question'].valid &&
-          questionForm.controls['question'].touched
+          !contactForm.controls['question'].valid &&
+          contactForm.controls['question'].touched
         "
       >
         Put in your Message.
@@ -78,7 +77,7 @@
     <button
       class="submit grid-start"
       type="submit"
-      [disabled]="!questionForm.valid || buttondisabled"
+      [disabled]="!contactForm.valid || buttondisabled"
     >
       submit
     </button>
