@@ -11,7 +11,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UserDropdownComponent implements OnInit {
   user: User = null;
-  returnUrl: "";
   email: string = "";
   password: string = "";
 
@@ -24,7 +23,6 @@ export class UserDropdownComponent implements OnInit {
 
   ngOnInit() {
     this.userService.currentUser.subscribe(user => this.user = user);
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || this.router.url;
   }
 
   loginUser(event) {
@@ -35,7 +33,8 @@ export class UserDropdownComponent implements OnInit {
       .login(this.email, this.password)
       .then(() => {
         myForm.reset();
-        this.router.navigateByUrl(this.returnUrl)
+        const returnUrl = this.route.snapshot.queryParams.returnUrl || this.router.url;
+        this.router.navigateByUrl(returnUrl)
       })
       .catch();
 
