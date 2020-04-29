@@ -27,7 +27,7 @@ pipeline {
                     } else {
                         dockerVersion = env.BRANCH_NAME
                     }
-                    dockerImage = docker.build("bernhardschiffer/hike-roverlike:${dockerVersion}")
+                    dockerImage = docker.build("bernhardschiffer/mywebsite-ui:${dockerVersion}")
                 }
             }
         }
@@ -51,7 +51,7 @@ pipeline {
 
         stage('Remove Unused docker image') {
             steps{
-                sh "docker rmi bernhardschiffer/hike-roverlike:${dockerVersion}"
+                sh "docker rmi bernhardschiffer/mywebsite-ui:${dockerVersion}"
             }
         }
     }
